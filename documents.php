@@ -119,35 +119,6 @@ include 'sidebar.php';
     </div>
 </div>
 
-<script>
-// Загрузка полей формы при выборе типа документа
-document.getElementById('documentType').addEventListener('change', function() {
-    const type = this.value;
-    if (!type) return;
-    
-    fetch(`get_document_fields.php?type=${type}`)
-        .then(response => response.text())
-        .then(html => {
-            document.getElementById('documentFormFields').innerHTML = html;
-        })
-        .catch(error => {
-            console.error('Error loading form fields:', error);
-            logErrorToSystem(error, {page: 'documents.php', action: 'load_document_fields'});
-        });
-});
 
-// Обработка ошибок и логирование
-function logErrorToSystem(error, context = {}) {
-    fetch('log_error.php', {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({
-            error: error.message,
-            stack: error.stack,
-            context: context
-        })
-    }).catch(e => console.error('Failed to log error:', e));
-}
-</script>
 
 <?php include 'footer.php'; ?>

@@ -53,6 +53,11 @@
         <i class="bi bi-code-square"></i>
         <span class="sidebar-text">ПО</span>
     </a>
+
+    <a href="network.php" class="sidebar-link <?= basename($_SERVER['PHP_SELF']) == 'network.php' ? 'active' : '' ?>">
+        <i class="bi bi-hdd-network"></i>
+        <span class="sidebar-text">Сетевые настройки</span>
+    </a>
     
     <a href="consumables.php" class="sidebar-link <?= basename($_SERVER['PHP_SELF']) == 'consumables.php' ? 'active' : '' ?>">
         <i class="bi bi-printer"></i>
